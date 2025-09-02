@@ -1520,6 +1520,28 @@ by emailing help@olcf.ornl.gov.
 
 ----
 
+External Routing Features
+=========================
+
+Defiant offers select projects external routing capabilities to off-site facilities via the Deparment of Energy's dedicated Energy Sciences Network (ESnet). These features are provided as part of the DOE's Integrated Research Infrastructure (IRI) program.
+
+Requesting External Routing Features
+------------------------------------
+
+This functionality is deployed in Slurm with the use of features and licenses. The resources are requested via Slurm job constraints.
+::
+
+    salloc -A <project_id> -t 10 -N 4 -C <feature> -L ext_route:4
+
+In the above example, four nodes are requested with the specified feature, and then licensed with the ``ext_route`` license.
+
+Note that these features have the following requirements:
+
+- Only 4 ``ext_route`` licenses are available in the system.
+- To request this feature in a job, both the ``-C`` constraints flag, and the ``-L`` must be specified and valid.
+- The number of requested nodes with ``-N`` must match the number of requested licenses with ``-L``.
+
+----
 
 Known Issues
 ============
